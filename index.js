@@ -10,7 +10,7 @@ const app = express();
 
 // --- CORS configuration to allow requests from your React app ---
 const corsOptions = {
-  origin: 'https://q-gen-0.netlify.app/'
+  origin: 'https://q-gen-nu.vercel.app/'
 };
 app.use(cors(corsOptions));
 app.use(express.json()); // To parse JSON bodies (though form-data is primary now)
