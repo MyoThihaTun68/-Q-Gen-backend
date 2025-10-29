@@ -10,7 +10,7 @@ const app = express();
 
 // --- CORS configuration to allow requests from your React app ---
 const corsOptions = {
-  origin: 'http://localhost:3000'
+  origin: 'https://q-gen-0.netlify.app/'
 };
 app.use(cors(corsOptions));
 app.use(express.json()); // To parse JSON bodies (though form-data is primary now)
@@ -22,13 +22,6 @@ const upload = multer({ storage: storage });
 
 const PORT = process.env.PORT || 5000;
 
-/**
- * --- API Route for Generating QR Code ---
- * This route now uses `upload.single('icon')` middleware.
- * - `upload.single('icon')`: This tells Multer to expect a single file in a field named 'icon'.
- * - The text fields from the FormData will be in `req.body`.
- * - The uploaded file (if any) will be in `req.file`.
- */
 app.post('/generate', upload.single('icon'), async (req, res) => {
   console.log("Received a request to /generate.");
   
